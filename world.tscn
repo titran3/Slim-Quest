@@ -8,3 +8,11 @@
 position = Vector2(536, 243)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(464, -128)
+polygon = PackedVector2Array(0, 0, 0, 448, 128, 448, 192, 512, 256, 512, 320, 448, 384, 448, 448, 384, 512, 384, 576, 576, 704, 576, 832, 512, 832, 704, 896, 704, 896, 480, 960, 448, 1024, 448, 1024, 0, 1152, 0, 1152, 456, 1152, 768, -64, 768, -64, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
