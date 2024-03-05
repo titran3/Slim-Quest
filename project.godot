@@ -15,6 +15,11 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="res://Theme.tres"
+theme/custom_font="res://Daydream.ttf"
+
 [input]
 
 move_right={
