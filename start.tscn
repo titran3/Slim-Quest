@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://f73l0t6neupr"]
+[gd_scene load_steps=4 format=3 uid="uid://f73l0t6neupr"]
+
+[ext_resource type="Texture2D" uid="uid://dfxmap4bhyi37" path="res://BackgroundCity-export.png" id="1_6f8v8"]
+[ext_resource type="Theme" uid="uid://cwmybp78ekvwj" path="res://kenneyUI-blue.tres" id="1_fshfp"]
+[ext_resource type="Texture2D" uid="uid://b2rns8jrm70wb" path="res://logo.png" id="3_crkq7"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -6,18 +10,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 300
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(591, 324)
+scale = Vector2(2.79997, 2.79997)
+texture = ExtResource("1_6f8v8")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
+theme = ExtResource("1_fshfp")
 text = "Start Game"
 
 [node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_fshfp")
 text = "Quit Game"
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(571.6, -116)
+scale = Vector2(0.422656, 0.422656)
+texture = ExtResource("3_crkq7")
