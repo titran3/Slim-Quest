@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://f73l0t6neupr"]
+[gd_scene load_steps=6 format=3 uid="uid://f73l0t6neupr"]
 
-[ext_resource type="Texture2D" uid="uid://dfxmap4bhyi37" path="res://BackgroundCity-export.png" id="1_6f8v8"]
 [ext_resource type="Theme" uid="uid://cwmybp78ekvwj" path="res://kenneyUI-blue.tres" id="1_fshfp"]
+[ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_hy4v0"]
 [ext_resource type="Texture2D" uid="uid://b2rns8jrm70wb" path="res://logo.png" id="3_crkq7"]
+
+[sub_resource type="Environment" id="Environment_1oksi"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.84
+glow_strength = 1.44
+glow_bloom = 0.4
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 1.16
+adjustment_enabled = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2pxe7"]
+load_path = "res://.godot/imported/BackgroundCity-export-export.png-444add999d9f7f1706b4baf28618fef5.ctex"
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -12,10 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 300
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(591, 324)
-scale = Vector2(2.79997, 2.79997)
-texture = ExtResource("1_6f8v8")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1oksi")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -24,6 +35,20 @@ layout_mode = 2
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CenterContainer/VBoxContainer"]
+offset = Vector2(2.08165e-12, 325)
+transform = Transform2D(1, 0, 0, 1, 2.08165e-12, 325)
+script = ExtResource("1_hy4v0")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CenterContainer/VBoxContainer/ParallaxBackground"]
+motion_mirroring = Vector2(1364.5, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.384314, 0.415686, 0.537255, 1)
+position = Vector2(678, -0.125)
+scale = Vector2(2.8432, 2.8432)
+texture = SubResource("CompressedTexture2D_2pxe7")
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
@@ -37,7 +62,7 @@ layout_mode = 2
 theme = ExtResource("1_fshfp")
 text = "Quit Game"
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
-position = Vector2(571.6, -116)
-scale = Vector2(0.422656, 0.422656)
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(201, -182.5)
+scale = Vector2(0.40625, 0.40625)
 texture = ExtResource("3_crkq7")

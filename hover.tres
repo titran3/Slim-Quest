@@ -4,4 +4,5 @@
 
 [resource]
 texture = ExtResource("1_2odsd")
+expand_margin_left = 50.0
 region_rect = Rect2(1, 60, 190, 49)

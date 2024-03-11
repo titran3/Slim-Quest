@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfxmap4bhyi37"
-path="res://.godot/imported/BackgroundCity-export.png-658404cdaf6242874225b0a3ae4f4d06.ctex"
+uid="uid://cwi0mmf4vwe4w"
+path="res://.godot/imported/BackgroundCity-export-export.png-444add999d9f7f1706b4baf28618fef5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BackgroundCity-export.png"
-dest_files=["res://.godot/imported/BackgroundCity-export.png-658404cdaf6242874225b0a3ae4f4d06.ctex"]
+source_file="res://BackgroundCity-export-export.png"
+dest_files=["res://.godot/imported/BackgroundCity-export-export.png-444add999d9f7f1706b4baf28618fef5.ctex"]
 
 [params]
 

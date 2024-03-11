@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://df7baqnnkgge" path="res://Daydream.ttf" id="1_igg8u"]
 [ext_resource type="Texture2D" uid="uid://bmo77km56pani" path="res://UIpack_vector.svg" id="2_c16nh"]
-[ext_resource type="StyleBox" uid="uid://d2givv1r8dx6t" path="res://hover.tres" id="3_gjfpl"]
 
 [sub_resource type="StyleBoxTexture" id="1"]
 texture = ExtResource("2_c16nh")
@@ -10,7 +9,10 @@ region_rect = Rect2(211, 240, 190, 49)
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[sub_resource type="StyleBoxTexture" id="4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m60fh"]
+bg_color = Color(0, 0.341176, 0.482353, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3748f"]
 texture = ExtResource("2_c16nh")
 region_rect = Rect2(211, 240, 190, 49)
 
@@ -542,8 +544,8 @@ Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_igg8u")
 Button/styles/disabled = SubResource("1")
 Button/styles/focus = SubResource("2")
-Button/styles/hover = ExtResource("3_gjfpl")
-Button/styles/normal = SubResource("4")
+Button/styles/hover = SubResource("StyleBoxFlat_m60fh")
+Button/styles/normal = SubResource("StyleBoxTexture_3748f")
 Button/styles/pressed = SubResource("5")
 CheckBox/colors/font_color = Color(0, 0, 0, 1)
 CheckBox/colors/font_color_disabled = Color(0.9, 0.9, 0.9, 0.2)
