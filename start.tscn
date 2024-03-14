@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://f73l0t6neupr"]
+[gd_scene load_steps=7 format=3 uid="uid://f73l0t6neupr"]
 
+[ext_resource type="Script" path="res://start.gd" id="1_1shfg"]
 [ext_resource type="Theme" uid="uid://cwmybp78ekvwj" path="res://kenneyUI-blue.tres" id="1_fshfp"]
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_hy4v0"]
 [ext_resource type="Texture2D" uid="uid://b2rns8jrm70wb" path="res://logo.png" id="3_crkq7"]
@@ -17,13 +18,14 @@ adjustment_enabled = true
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2pxe7"]
 load_path = "res://.godot/imported/BackgroundCity-export-export.png-444add999d9f7f1706b4baf28618fef5.ctex"
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="Main Menu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 300
+script = ExtResource("1_1shfg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1oksi")
@@ -45,18 +47,18 @@ script = ExtResource("1_hy4v0")
 motion_mirroring = Vector2(1364.5, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.384314, 0.415686, 0.537255, 1)
+modulate = Color(0.654902, 0.615686, 0.560784, 1)
 position = Vector2(678, -0.125)
 scale = Vector2(2.8432, 2.8432)
 texture = SubResource("CompressedTexture2D_2pxe7")
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Start Button" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme = ExtResource("1_fshfp")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit Button" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("1_fshfp")
@@ -66,3 +68,6 @@ text = "Quit Game"
 position = Vector2(201, -182.5)
 scale = Vector2(0.40625, 0.40625)
 texture = ExtResource("3_crkq7")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

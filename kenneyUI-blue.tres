@@ -10,7 +10,7 @@ region_rect = Rect2(211, 240, 190, 49)
 [sub_resource type="StyleBoxEmpty" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m60fh"]
-bg_color = Color(0, 0.341176, 0.482353, 1)
+bg_color = Color(0, 0.243137, 0.34902, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3748f"]
 texture = ExtResource("2_c16nh")
@@ -526,7 +526,7 @@ Button/colors/font_color_disabled = Color(0.9, 0.9, 0.9, 0.2)
 Button/colors/font_color_hover = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0, 0.74902, 1, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.756863, 0.756863, 0.756863, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
