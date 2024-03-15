@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://csbxrtapurbkb"]
+[gd_scene load_steps=3 format=3 uid="uid://csbxrtapurbkb"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwsrh"]
 
 [node name="World" type="Node2D"]
 
@@ -8,6 +10,12 @@
 position = Vector2(536, 243)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -3)
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_rwsrh")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="Player"]
+wait_time = 0.02
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
