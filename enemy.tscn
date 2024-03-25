@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpkpfs2ogg36r"]
+
+[ext_resource type="Texture2D" uid="uid://28jstwvvdtfp" path="res://fries.png" id="1_sy621"]
+[ext_resource type="Texture2D" uid="uid://cb4buja4pi5wr" path="res://frieswalk.png" id="2_fxoim"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1taou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sy621")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fxoim")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0bxap"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dt08a"]
+_data = {
+"idle": SubResource("Animation_0bxap")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1taou")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dt08a")
+}
