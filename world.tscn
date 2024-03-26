@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://csbxrtapurbkb"]
+[gd_scene load_steps=3 format=3 uid="uid://csbxrtapurbkb"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
+[ext_resource type="PackedScene" uid="uid://cfuihfxhfd5mf" path="res://enemy.tscn" id="2_liig2"]
 
 [node name="World" type="Node2D"]
 
@@ -16,3 +17,6 @@ position = Vector2(464, -128)
 polygon = PackedVector2Array(0, 0, 0, 448, 128, 448, 192, 512, 256, 512, 320, 448, 384, 448, 448, 384, 512, 384, 576, 576, 704, 576, 832, 512, 832, 704, 896, 704, 896, 480, 960, 448, 1024, 448, 1024, 0, 1152, 0, 1152, 456, 1152, 768, -64, 768, -64, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_liig2")]
+position = Vector2(942, 188)
