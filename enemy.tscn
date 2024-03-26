@@ -1,57 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://b515176xo3uxl"]
+[gd_scene load_steps=6 format=3 uid="uid://dpkpfs2ogg36r"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_rxqi1"]
-[ext_resource type="Texture2D" path="res://fries.png" id="1_sy621"]
-[ext_resource type="Texture2D" path="res://frieswalk.png" id="2_fxoim"]
+[ext_resource type="Texture2D" uid="uid://28jstwvvdtfp" path="res://fries.png" id="1_sy621"]
+[ext_resource type="Texture2D" uid="uid://cb4buja4pi5wr" path="res://frieswalk.png" id="2_fxoim"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_btn0n"]
-atlas = ExtResource("1_sy621")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7s07w"]
-atlas = ExtResource("1_sy621")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvyno"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m11ln"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr742"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_igf56"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dskx1"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqc1c"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8pdn"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oik8t"]
-atlas = ExtResource("2_fxoim")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mxea7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1taou"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_btn0n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7s07w")
+"texture": ExtResource("1_sy621")
 }],
 "loop": true,
 "name": &"idle",
@@ -59,60 +15,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mvyno")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m11ln")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fr742")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_igf56")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dskx1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqc1c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8pdn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oik8t")
+"texture": ExtResource("2_fxoim")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2m2n"]
-radius = 75.0
-height = 156.0
+[sub_resource type="Animation" id="Animation_0bxap"]
+resource_name = "idle"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vgxq"]
-size = Vector2(43, 45.5)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dt08a"]
+_data = {
+"idle": SubResource("Animation_0bxap")
+}
 
-[node name="enemy" type="CharacterBody2D"]
-script = ExtResource("1_rxqi1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mxea7")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1taou")
 animation = &"idle"
-frame_progress = 0.429564
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -1.5)
-shape = SubResource("CapsuleShape2D_v2m2n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1.25)
-shape = SubResource("RectangleShape2D_1vgxq")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dt08a")
+}
