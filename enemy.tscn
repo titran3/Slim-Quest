@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://cfuihfxhfd5mf"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_rxqi1"]
-[ext_resource type="Texture2D" path="res://fries.png" id="1_sy621"]
-[ext_resource type="Texture2D" path="res://frieswalk.png" id="2_fxoim"]
+[ext_resource type="Texture2D" uid="uid://28jstwvvdtfp" path="res://fries.png" id="1_sy621"]
+[ext_resource type="Texture2D" uid="uid://cb4buja4pi5wr" path="res://frieswalk.png" id="2_fxoim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btn0n"]
 atlas = ExtResource("1_sy621")
@@ -101,6 +101,7 @@ script = ExtResource("1_rxqi1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mxea7")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 

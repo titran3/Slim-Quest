@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=34 format=3 uid="uid://cc3vs80b3jcel"]
 
-[ext_resource type="FontFile" path="res://Daydream.ttf" id="1_igg8u"]
-[ext_resource type="Texture2D" path="res://UIpack_vector.svg" id="2_c16nh"]
+[ext_resource type="FontFile" uid="uid://df7baqnnkgge" path="res://Daydream.ttf" id="1_igg8u"]
+[ext_resource type="Texture2D" uid="uid://bmo77km56pani" path="res://UIpack_vector.svg" id="2_c16nh"]
 
 [sub_resource type="StyleBoxTexture" id="1"]
 texture = ExtResource("2_c16nh")
