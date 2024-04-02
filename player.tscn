@@ -1,16 +1,118 @@
-[gd_scene load_steps=4 format=3 uid="uid://d20s7q15fo1uw"]
+[gd_scene load_steps=21 format=3 uid="uid://d20s7q15fo1uw"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5jmxd"]
-[ext_resource type="Texture2D" uid="uid://cgeg1kgrr43ml" path="res://icon.svg" id="2_6b7rj"]
+[ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ccs04"]
+[ext_resource type="Texture2D" uid="uid://dusm5gdkn3vjb" path="res://animation/catidle1.png" id="2_k3l2r"]
+[ext_resource type="Texture2D" uid="uid://cn07wbxilsrw6" path="res://animation/catidle2.png" id="3_jlm0q"]
+[ext_resource type="Texture2D" uid="uid://upvvrjofuvul" path="res://animation/catidle3.png" id="4_qcm2t"]
+[ext_resource type="Texture2D" uid="uid://dl8mjgv1e3kw1" path="res://animation/catjump1.png" id="5_8hhl8"]
+[ext_resource type="Texture2D" uid="uid://ile2vr5nbkrk" path="res://animation/catjump2.png" id="6_xshdh"]
+[ext_resource type="Texture2D" uid="uid://h1j1vm38ee24" path="res://animation/catjump3.png" id="7_7prlo"]
+[ext_resource type="Texture2D" uid="uid://gwvogo677sl8" path="res://animation/catjump4.png" id="8_kn4wt"]
+[ext_resource type="Texture2D" uid="uid://ddhyktj2gkpkh" path="res://animation/catjump5.png" id="9_ovvhj"]
+[ext_resource type="Texture2D" uid="uid://b7cfj1kagb45h" path="res://animation/catjump6.png" id="10_eswlu"]
+[ext_resource type="Texture2D" uid="uid://x5oxtgqetv0h" path="res://animation/catwalk1.png" id="11_0kwjr"]
+[ext_resource type="Texture2D" uid="uid://ceyhcpkf0mjv7" path="res://animation/catwalk2.png" id="12_0w51p"]
+[ext_resource type="Texture2D" uid="uid://dh5x8rrk7pfn" path="res://animation/catwalk3.png" id="13_sg1ct"]
+[ext_resource type="Texture2D" uid="uid://cyy41qsdcqnkn" path="res://animation/catwalk4.png" id="14_0x5c8"]
+[ext_resource type="Texture2D" uid="uid://bkas7lnfpkb82" path="res://animation/catwalk5.png" id="15_o1biy"]
+[ext_resource type="Texture2D" uid="uid://chcqhmihkad3g" path="res://animation/catwalk6.png" id="16_1lvj0"]
+[ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="17_metmg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3i5bp"]
-radius = 64.2806
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpjv3"]
+radius = 23.85
+height = 80.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8awy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k3l2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jlm0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qcm2t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8hhl8")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_xshdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7prlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kn4wt")
+}, {
+"duration": 0.7,
+"texture": ExtResource("9_ovvhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eswlu")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_0kwjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0w51p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sg1ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0x5c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_o1biy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1lvj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_metmg")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5jmxd")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6b7rj")
+movement_data = ExtResource("2_ccs04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3i5bp")
+position = Vector2(4, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xpjv3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.95, 0.95)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -39)
+scale = Vector2(0.186835, 0.186835)
+sprite_frames = SubResource("SpriteFrames_j8awy")
+animation = &"jump"
+frame_progress = 0.735976
+speed_scale = 1.2
+
+[node name="Coyote Jump Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Wall Jump Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

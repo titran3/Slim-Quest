@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://reh67xhsly3m"]
+
+[ext_resource type="Script" path="res://Salad.gd" id="1_e02dm"]
+[ext_resource type="Texture2D" uid="uid://0oo3vjmfi1et" path="res://BowlAnimation-Sheet.png" id="2_8tx6x"]
+[ext_resource type="Texture2D" uid="uid://0oshg5ku4buq" path="res://Saladidle-Sheet.png" id="3_2rmm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuasd"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01n7s"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e07a4"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kydw0"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yefxa"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awl53"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rapx"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47svn"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxtyn"]
+atlas = ExtResource("2_8tx6x")
+region = Rect2(4096, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npvd0"]
+atlas = ExtResource("3_2rmm0")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu30o"]
+atlas = ExtResource("3_2rmm0")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utsb5"]
+atlas = ExtResource("3_2rmm0")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4peiy"]
+atlas = ExtResource("3_2rmm0")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acqsj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuasd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01n7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e07a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kydw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yefxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awl53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rapx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47svn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxtyn")
+}],
+"loop": true,
+"name": &"eaten",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npvd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu30o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utsb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4peiy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5ool"]
+
+[node name="Salad" type="Area2D" groups=["Salad"]]
+script = ExtResource("1_e02dm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0477477, 0.0477477)
+sprite_frames = SubResource("SpriteFrames_acqsj")
+animation = &"eaten"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.451465, 0.451465)
+shape = SubResource("CircleShape2D_o5ool")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

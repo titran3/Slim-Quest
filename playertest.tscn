@@ -1,0 +1,118 @@
+[gd_scene load_steps=21 format=3 uid="uid://co72rwfanqmxm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_uxx4y"]
+[ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_uqqtx"]
+[ext_resource type="Texture2D" uid="uid://dusm5gdkn3vjb" path="res://animation/catidle1.png" id="3_bh50f"]
+[ext_resource type="Texture2D" uid="uid://cn07wbxilsrw6" path="res://animation/catidle2.png" id="4_pvotl"]
+[ext_resource type="Texture2D" uid="uid://upvvrjofuvul" path="res://animation/catidle3.png" id="5_rixfu"]
+[ext_resource type="Texture2D" uid="uid://dl8mjgv1e3kw1" path="res://animation/catjump1.png" id="6_n7sal"]
+[ext_resource type="Texture2D" uid="uid://ile2vr5nbkrk" path="res://animation/catjump2.png" id="7_l6coj"]
+[ext_resource type="Texture2D" uid="uid://h1j1vm38ee24" path="res://animation/catjump3.png" id="8_s4ira"]
+[ext_resource type="Texture2D" uid="uid://gwvogo677sl8" path="res://animation/catjump4.png" id="9_w0pdj"]
+[ext_resource type="Texture2D" uid="uid://ddhyktj2gkpkh" path="res://animation/catjump5.png" id="10_farsj"]
+[ext_resource type="Texture2D" uid="uid://b7cfj1kagb45h" path="res://animation/catjump6.png" id="11_n2we3"]
+[ext_resource type="Texture2D" uid="uid://x5oxtgqetv0h" path="res://animation/catwalk1.png" id="12_hf3i7"]
+[ext_resource type="Texture2D" uid="uid://ceyhcpkf0mjv7" path="res://animation/catwalk2.png" id="13_qb5lm"]
+[ext_resource type="Texture2D" uid="uid://dh5x8rrk7pfn" path="res://animation/catwalk3.png" id="14_dxk1w"]
+[ext_resource type="Texture2D" uid="uid://cyy41qsdcqnkn" path="res://animation/catwalk4.png" id="15_p6lel"]
+[ext_resource type="Texture2D" uid="uid://bkas7lnfpkb82" path="res://animation/catwalk5.png" id="16_iw4o2"]
+[ext_resource type="Texture2D" uid="uid://chcqhmihkad3g" path="res://animation/catwalk6.png" id="17_bwnqj"]
+[ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="18_ah73u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpjv3"]
+radius = 23.85
+height = 80.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8awy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bh50f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pvotl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rixfu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n7sal")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_l6coj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s4ira")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w0pdj")
+}, {
+"duration": 0.7,
+"texture": ExtResource("10_farsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n2we3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_hf3i7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qb5lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dxk1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p6lel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_iw4o2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bwnqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ah73u")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Player" type="TextureRect"]
+script = ExtResource("1_uxx4y")
+movement_data = ExtResource("2_uqqtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xpjv3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.95, 0.95)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -39)
+scale = Vector2(0.186835, 0.186835)
+sprite_frames = SubResource("SpriteFrames_j8awy")
+animation = &"jump"
+frame_progress = 0.735976
+speed_scale = 1.2
+
+[node name="Coyote Jump Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Wall Jump Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

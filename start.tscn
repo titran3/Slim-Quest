@@ -22,8 +22,13 @@ load_path = "res://.godot/imported/BackgroundCity-export-export.png-444add999d9f
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = 32.0
+offset_right = 179.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.246831, 0.246831)
 theme_override_constants/margin_top = 300
 script = ExtResource("1_1shfg")
 
@@ -32,6 +37,8 @@ environment = SubResource("Environment_1oksi")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
@@ -39,8 +46,9 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CenterContainer/VBoxContainer"]
-offset = Vector2(2.08165e-12, 325)
-transform = Transform2D(1, 0, 0, 1, 2.08165e-12, 325)
+offset = Vector2(2.08165e-12, 90)
+scale = Vector2(0.29, 0.29)
+transform = Transform2D(0.29, 0, 0, 0.29, 2.08165e-12, 90)
 script = ExtResource("1_hy4v0")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CenterContainer/VBoxContainer/ParallaxBackground"]

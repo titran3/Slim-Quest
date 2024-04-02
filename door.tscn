@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1og06uovlrj8"]
+
+[ext_resource type="Texture2D" uid="uid://cgeg1kgrr43ml" path="res://icon.svg" id="1_3ojvd"]
+[ext_resource type="Script" path="res://door.gd" id="1_6onxe"]
+[ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_rtypo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lbax"]
+
+[node name="Door" type="Area2D" groups=["Salad"]]
+scale = Vector2(0.125968, 0.125968)
+script = ExtResource("1_6onxe")
+next_level = ExtResource("2_rtypo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3ojvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.41458, 6.41458)
+shape = SubResource("RectangleShape2D_0lbax")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
