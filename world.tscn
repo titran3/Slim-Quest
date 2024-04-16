@@ -19,4 +19,4 @@ polygon = PackedVector2Array(0, 0, 0, 448, 128, 448, 192, 512, 256, 512, 320, 44
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("2_liig2")]
-position = Vector2(942, 188)
+position = Vector2(1035, 104)

@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-var speed = 10
+var speed = 50
 var player_chase = false
-var player = null
 var animatedSprite
+var player = null
+
 
 func _ready():
 	print("Enemy ready")
@@ -14,6 +15,10 @@ func _ready():
 func _physics_process(delta):
 	if player_chase:
 		position += (player.position - position)/speed
+		
+		
+		
+		
 
 
 
@@ -23,6 +28,13 @@ func _on_area_2d_body_entered(body):
 	player = body
 	player_chase = true
 	animatedSprite.play("walk")
+	var direction = player.global_position.x - global_position.x
+	if direction > 0:
+		scale.x = abs(scale.x)  # Ensure facing right
+	else:
+		scale.x = -abs(scale.x)  # Flip horizontally to face left
+
+	
 
 
 func _on_area_2d_body_exited(body):
