@@ -97,3 +97,7 @@ motion_mirroring = Vector2(1280, 2.08165e-12)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 position = Vector2(-1, 0)
 texture = ExtResource("7_2b63b")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.57
+blend_mode = 1

@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dskwlrj3entwa"]
+[gd_scene load_steps=7 format=3 uid="uid://dskwlrj3entwa"]
 
 [ext_resource type="Script" path="res://door.gd" id="1_6onxe"]
 [ext_resource type="Texture2D" uid="uid://4bacc6nmjxop" path="res://cat door closed.png" id="1_c660y"]
 [ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_nytap"]
+
+[sub_resource type="Gradient" id="Gradient_ub4xa"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8r3g3"]
+gradient = SubResource("Gradient_ub4xa")
+fill = 1
+fill_from = Vector2(0.495413, 0.495413)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bocf2"]
 size = Vector2(50, 73)
@@ -10,6 +18,14 @@ size = Vector2(50, 73)
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_6onxe")
 next_level = ExtResource("2_nytap")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 6)
+rotation = 3.14159
+scale = Vector2(1.50298, 1.84203)
+color = Color(0.380392, 0.803922, 1, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_8r3g3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.177778, 0.177778)

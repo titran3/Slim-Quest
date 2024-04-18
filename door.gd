@@ -4,6 +4,7 @@ extends Area2D
 @onready var sprite_2d = $Sprite2D
 var image = preload("res://cat door open.png")
 var portal = "closed"
+@onready var point_light_2d = $PointLight2D
 
 func _on_body_entered(body):
 	if portal == "open":
@@ -15,6 +16,7 @@ func _process(delta):
 	if is_salad_empty():
 		portal = "open"
 	if portal == "open":
+		point_light_2d.energy = 0.5
 		sprite_2d.texture = preload("res://cat door open.png")
 	
 
