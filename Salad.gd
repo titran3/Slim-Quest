@@ -1,9 +1,10 @@
 extends Area2D
 var state = "idle"
 @export var movement_data: PlayerMovementData
-
-var player_scene = preload("res://player.tscn").instantiate()
+var door = preload("res://door.tscn").instantiate()
+var player_scene = preload("res://player.tscn").instantiate() 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+var image = preload("res://cat door open.png")
 
 func _process(delta):
 	var salads = get_tree().get_nodes_in_group("Salad")
