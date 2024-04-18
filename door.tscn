@@ -1,25 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1og06uovlrj8"]
+[gd_scene load_steps=5 format=3 uid="uid://dskwlrj3entwa"]
 
 [ext_resource type="Script" path="res://door.gd" id="1_6onxe"]
-[ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_rtypo"]
-[ext_resource type="Texture2D" uid="uid://4bacc6nmjxop" path="res://cat door closed.png" id="3_qpejj"]
+[ext_resource type="Texture2D" uid="uid://4bacc6nmjxop" path="res://cat door closed.png" id="1_c660y"]
+[ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_nytap"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lbax"]
-size = Vector2(22.2764, 32.2764)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bocf2"]
+size = Vector2(50, 73)
 
-[node name="Door" type="Area2D" groups=["Salad"]]
-scale = Vector2(0.125968, 0.125968)
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_6onxe")
-next_level = ExtResource("2_rtypo")
+next_level = ExtResource("2_nytap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -63.5082)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_qpejj")
+scale = Vector2(0.177778, 0.177778)
+texture = ExtResource("1_c660y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.36586e-06, -63.1894)
-scale = Vector2(6.41458, 6.41458)
-shape = SubResource("RectangleShape2D_0lbax")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bocf2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

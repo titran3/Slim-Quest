@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://2ub0j3ke8x20"]
+[gd_scene load_steps=12 format=3 uid="uid://2ub0j3ke8x20"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
 [ext_resource type="Script" path="res://world.gd" id="1_yxqd0"]
+[ext_resource type="Environment" uid="uid://c32pe730ys8xc" path="res://worldenvironment.tres" id="2_0dg03"]
 [ext_resource type="Texture2D" uid="uid://di8quqid6pubg" path="res://Sky.png" id="2_ccaeo"]
 [ext_resource type="Texture2D" uid="uid://bjh10ydnx8d7a" path="res://Cloud.png" id="3_20ih0"]
 [ext_resource type="Texture2D" uid="uid://b2jr8uqjwrsuq" path="res://Skyline1.png" id="4_p6y42"]
@@ -9,14 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://bkpu525p2c5yq" path="res://Skyline3.png" id="6_difw0"]
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
-[ext_resource type="PackedScene" uid="uid://c1og06uovlrj8" path="res://door.tscn" id="10_e2sgr"]
+[ext_resource type="PackedScene" uid="uid://dskwlrj3entwa" path="res://door.tscn" id="10_e2sgr"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yxqd0")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_0dg03")
+
 [node name="Door" parent="." instance=ExtResource("10_e2sgr")]
-position = Vector2(268, 242)
-scale = Vector2(0.150123, 0.150123)
+position = Vector2(268, 238)
+scale = Vector2(0.279858, 0.279858)
 
 [node name="Player" parent="." instance=ExtResource("1_gadae")]
 position = Vector2(8, 240)
