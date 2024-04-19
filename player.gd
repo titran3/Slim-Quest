@@ -81,13 +81,12 @@ func handle_acceleration(input_axis, delta):
 		velocity.x = move_toward(velocity.x, movement_data.speed * input_axis, movement_data.acceleration * delta)
 		
 func update_animation(input_axis):
-	if is_on_floor():
-		if input_axis != 0:
-			animated_sprite_2d.flip_h = (input_axis < 0)
-			animated_sprite_2d.play("run")
-		else:
-			animated_sprite_2d.play("idle")
+	if input_axis != 0:
+		animated_sprite_2d.flip_h = (input_axis < 0)
+		animated_sprite_2d.play("run")
 	else:
+		animated_sprite_2d.play("idle")
+	if not is_on_floor():
 		animated_sprite_2d.play("jump")
 		
 func apply_air_resistance(input_axis, delta):
