@@ -6,7 +6,7 @@ var player_scene = preload("res://player.tscn").instantiate()
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var image = preload("res://cat door open.png")
 @onready var player = $"../Player"
-@onready var player_scale = .05
+@onready var player_scale = 0.9
 
 func _process(delta):
 	var salads = get_tree().get_nodes_in_group("Salad")
@@ -23,5 +23,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	state = "eaten"
-	player.scale.x -= player_scale
-	player.scale.y -= player_scale
+	player.scale.x *= player_scale
