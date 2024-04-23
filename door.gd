@@ -18,8 +18,7 @@ func _process(delta):
 	if portal == "open":
 		point_light_2d.energy = 0.5
 		sprite_2d.texture = load("res://cat door open.png")
-	
 
-func is_salad_empty():
+func is_salad_empty() -> bool:
 	var salad_nodes = get_tree().get_nodes_in_group("Salad")
 	return salad_nodes.size() == 0

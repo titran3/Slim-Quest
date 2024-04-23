@@ -5,12 +5,15 @@
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_hy4v0"]
 [ext_resource type="Texture2D" uid="uid://b2rns8jrm70wb" path="res://logo.png" id="3_crkq7"]
 
-[sub_resource type="Environment" id="Environment_7f1ht"]
+[sub_resource type="Environment" id="Environment_1oksi"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 5.24
-glow_strength = 1.05
-glow_bloom = 0.49
+glow_intensity = 0.84
+glow_strength = 1.44
+glow_bloom = 0.4
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 1.16
+adjustment_enabled = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2pxe7"]
 load_path = "res://.godot/imported/BackgroundCity-export-export.png-444add999d9f7f1706b4baf28618fef5.ctex"
@@ -30,7 +33,7 @@ theme_override_constants/margin_top = 300
 script = ExtResource("1_1shfg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7f1ht")
+environment = SubResource("Environment_1oksi")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
