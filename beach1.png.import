@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbwky3gbnp0h"
-path="res://.godot/imported/Cloud.png-f72e20a562504a8e12212164e8eb7e69.ctex"
+uid="uid://ba6m53kylkuvc"
+path="res://.godot/imported/beach1.png-bb9791c8dbee8ca021569630f4f2c048.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cloud.png"
-dest_files=["res://.godot/imported/Cloud.png-f72e20a562504a8e12212164e8eb7e69.ctex"]
+source_file="res://beach1.png"
+dest_files=["res://.godot/imported/beach1.png-bb9791c8dbee8ca021569630f4f2c048.ctex"]
 
 [params]
 

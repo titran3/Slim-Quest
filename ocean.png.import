@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbwky3gbnp0h"
-path="res://.godot/imported/Cloud.png-f72e20a562504a8e12212164e8eb7e69.ctex"
+uid="uid://pmy8maqbji87"
+path="res://.godot/imported/ocean.png-f3d3cfcbb969101efdc1e96bb2fd079c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cloud.png"
-dest_files=["res://.godot/imported/Cloud.png-f72e20a562504a8e12212164e8eb7e69.ctex"]
+source_file="res://ocean.png"
+dest_files=["res://.godot/imported/ocean.png-f3d3cfcbb969101efdc1e96bb2fd079c.ctex"]
 
 [params]
 

@@ -94,12 +94,9 @@ script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 1)
+position = Vector2(4, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xpjv3")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.95, 0.95)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -39)
@@ -116,3 +113,12 @@ one_shot = true
 [node name="Wall Jump Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1.99998)
+zoom = Vector2(0.95, 0.95)
+limit_left = -30
+limit_bottom = 320
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

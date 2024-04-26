@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbvca3qfwh6j6"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_lqv3f"]
+[ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="2_fgxro"]
+[ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="3_1ur7f"]
+[ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="4_yk0ma"]
+[ext_resource type="Texture2D" uid="uid://ba6m53kylkuvc" path="res://beach1.png" id="5_o1av3"]
+[ext_resource type="Texture2D" uid="uid://bnbwky3gbnp0h" path="res://Cloud.png" id="6_l2ydo"]
+[ext_resource type="Texture2D" uid="uid://dnlylau641mo1" path="res://sun.png" id="6_wusx4"]
+[ext_resource type="Texture2D" uid="uid://pmy8maqbji87" path="res://ocean.png" id="8_yx7pj"]
+[ext_resource type="Texture2D" uid="uid://mxb6v5j6wv1l" path="res://sand.png" id="9_dkmep"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_lqv3f")
+
+[node name="Door" parent="." instance=ExtResource("2_fgxro")]
+position = Vector2(268, 239)
+scale = Vector2(1.47514, 1.47514)
+
+[node name="Player" parent="." instance=ExtResource("3_1ur7f")]
+position = Vector2(8, 231)
+scale = Vector2(0.252642, 0.252642)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-145, 158)
+scale = Vector2(0.283943, 0.285138)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(464.882, -126.255)
+polygon = PackedVector2Array(17.6092, 105.212, 17.6092, 441.891, 130.308, 441.891, 192, 512, 256, 512, 320, 448, 384, 448, 448, 384, 512, 384, 576, 576, 704, 576, 834.674, 498.004, 834.674, 694.401, 891.023, 694.401, 891.023, 469.948, 947.373, 441.891, 1031.9, 441.891, 1031.9, 105.212, 1144.6, 105.212, 1144.6, 469.948, 1144.6, 778.57, -66.9148, 778.57, -66.9148, 105.212)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Salad" parent="." instance=ExtResource("4_yk0ma")]
+position = Vector2(1, 206)
+
+[node name="Salad2" parent="." instance=ExtResource("4_yk0ma")]
+position = Vector2(51, 252)
+
+[node name="Salad3" parent="." instance=ExtResource("4_yk0ma")]
+position = Vector2(123, 222)
+
+[node name="Salad4" parent="." instance=ExtResource("4_yk0ma")]
+position = Vector2(271, 210)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(167, 65)
+scale = Vector2(0.28, 0.28)
+transform = Transform2D(0.28, 0, 0, 0.28, 167, 65)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2.63159, -97.3684)
+scale = Vector2(1.3, 1.3)
+motion_scale = Vector2(2, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_o1av3")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-63.3333, -1.66666)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("6_wusx4")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("6_l2ydo")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.75, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("8_yx7pj")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.95, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("9_dkmep")
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
+energy = 0.2
+blend_mode = 1
+shadow_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.992157, 0.517647, 0.360784, 1)
+energy = 0.4
+shadow_enabled = true
