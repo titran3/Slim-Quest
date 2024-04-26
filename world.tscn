@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkpu525p2c5yq" path="res://Skyline3.png" id="6_difw0"]
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
+level-1-platform
 [ext_resource type="PackedScene" uid="uid://c1og06uovlrj8" path="res://door.tscn" id="10_e2sgr"]
 [ext_resource type="Texture2D" uid="uid://dbptqjse5x27q" path="res://tile map level 1.png" id="11_wfnn6"]
 
@@ -186,9 +187,14 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Auto Tile"
 terrain_set_0/terrain_0/color = Color(0.945098, 0.87451, 0.831373, 1)
 sources/3 = SubResource("TileSetAtlasSource_eycud")
+[ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="10_e2sgr"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yxqd0")
+
+[node name="Door" parent="." instance=ExtResource("10_e2sgr")]
+position = Vector2(268, 239)
+scale = Vector2(1.47514, 1.47514)
 
 [node name="Player" parent="." instance=ExtResource("1_gadae")]
 position = Vector2(8, 240)
@@ -219,8 +225,10 @@ position = Vector2(360, 252)
 [node name="Salad5" parent="." instance=ExtResource("9_g336m")]
 position = Vector2(708, 256)
 
+level-1-platform
 [node name="Door" parent="." instance=ExtResource("10_e2sgr")]
 position = Vector2(1154, 173)
+
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(155.75, 100)
@@ -272,6 +280,7 @@ motion_mirroring = Vector2(1280, 2.08165e-12)
 position = Vector2(-1, 0)
 texture = ExtResource("7_2b63b")
 
+level-1-platform
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.692412, 0.700807)
 tile_set = SubResource("TileSet_uir3r")
@@ -281,3 +290,11 @@ layer_0/tile_data = PackedInt32Array(589819, 65539, 1, 589820, 131075, 1, 655356
 [node name="Polygon2D" type="Polygon2D" parent="TileMap"]
 position = Vector2(-619.573, 456.617)
 scale = Vector2(0.410078, 0.406871)
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.35
+blend_mode = 1
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="DirectionalLight2D"]
+color = Color(0.87451, 0.921569, 1, 1)
+blend_mode = 2
+shadow_enabled = true

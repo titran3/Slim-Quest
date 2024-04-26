@@ -1,21 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1og06uovlrj8"]
+[gd_scene load_steps=7 format=3 uid="uid://cp02xi8ad44mt"]
 
-[ext_resource type="Texture2D" uid="uid://cgeg1kgrr43ml" path="res://icon.svg" id="1_3ojvd"]
-[ext_resource type="Script" path="res://door.gd" id="1_6onxe"]
-[ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_rtypo"]
+[ext_resource type="Script" path="res://door.gd" id="1_6gkfp"]
+[ext_resource type="Texture2D" uid="uid://4bacc6nmjxop" path="res://cat door closed.png" id="2_jnift"]
+[ext_resource type="PackedScene" uid="uid://da61abgjsmh74" path="res://world2.tscn" id="2_v5omf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lbax"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qsud"]
+size = Vector2(8, 12)
 
-[node name="Door" type="Area2D" groups=["Salad"]]
-scale = Vector2(0.125968, 0.125968)
-script = ExtResource("1_6onxe")
-next_level = ExtResource("2_rtypo")
+[sub_resource type="Gradient" id="Gradient_1nqlt"]
+offsets = PackedFloat32Array(0, 0.730519)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c7n7r"]
+gradient = SubResource("Gradient_1nqlt")
+fill = 1
+fill_from = Vector2(0.490826, 0.483945)
+
+[node name="Door" type="Area2D"]
+scale = Vector2(2.84417, 2.84417)
+script = ExtResource("1_6gkfp")
+next_level = ExtResource("2_v5omf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ojvd")
+position = Vector2(0, 7.45058e-07)
+scale = Vector2(0.0311111, 0.0311111)
+texture = ExtResource("2_jnift")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.41458, 6.41458)
-shape = SubResource("RectangleShape2D_0lbax")
+shape = SubResource("RectangleShape2D_8qsud")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.515639, 0.375)
+color = Color(0.160784, 0.686275, 1, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_c7n7r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

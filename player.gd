@@ -12,6 +12,7 @@ var just_wall_jumped = false
 @onready var coyote_jump_timer = $"Coyote Jump Timer"
 @onready var starting_position = global_position
 @onready var wall_jump_timer = $"Wall Jump Timer"
+@onready var player = $"."
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -87,14 +88,14 @@ func update_animation(input_axis):
 		else:
 			animated_sprite_2d.play("idle")
 	else:
+		animated_sprite_2d.flip_h = (input_axis < 0)
 		animated_sprite_2d.play("jump")
 		
 func apply_air_resistance(input_axis, delta):
 	if input_axis == 0 and not is_on_floor():
 		velocity.x = move_toward(velocity.x , 0, movement_data.air_resistance * delta)
 	
-	
-
 
 func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
+	
