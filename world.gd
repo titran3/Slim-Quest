@@ -1,10 +1,11 @@
 extends Node2D
 
+class_name GameManager
+
 @onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
 @onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
 @onready var main_menu = $"CanvasLayer/Main Menu"
-
-var paused = false
+@onready var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

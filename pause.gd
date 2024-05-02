@@ -1,6 +1,6 @@
 extends Control
 
-@onready var world = $"World"
+@onready var world = $"../../"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,11 +13,12 @@ func _process(delta):
 
 
 func _on_return_pressed():
-	world.paused = false
+	world.pauseMenu()
 
 
 func _on_restart_pressed():
 	get_tree().reload_current_scene()
+	world.pauseMenu()
 
 
 func _on_quit_button_pressed():

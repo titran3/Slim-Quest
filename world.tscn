@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2ub0j3ke8x20"]
+[gd_scene load_steps=14 format=3 uid="uid://2ub0j3ke8x20"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
 [ext_resource type="Script" path="res://world.gd" id="1_yxqd0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
 [ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="10_e2sgr"]
+[ext_resource type="Texture2D" uid="uid://cp4smccv5cu24" path="res://Skyline.png" id="12_c8rlg"]
 [ext_resource type="PackedScene" uid="uid://dd1ujlt4rwflp" path="res://pause.tscn" id="12_drbbc"]
 
 [node name="World" type="Node2D"]
@@ -106,6 +107,21 @@ blend_mode = 1
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
 color = Color(0.87451, 0.921569, 1, 1)
 shadow_enabled = true
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 128
+offset = Vector2(155.75, 70)
+scale = Vector2(0.28, 0.28)
+transform = Transform2D(0.28, 0, 0, 0.28, 155.75, 70)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1280, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+modulate = Color(0.294118, 0.294118, 0.294118, 1)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("12_c8rlg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
