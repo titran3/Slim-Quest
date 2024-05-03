@@ -116,9 +116,9 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1.99998)
-zoom = Vector2(0.95, 0.95)
+zoom = Vector2(0.7, 0.7)
 limit_left = -30
-limit_bottom = 320
+limit_bottom = 300
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
