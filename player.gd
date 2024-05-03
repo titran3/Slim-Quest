@@ -13,6 +13,7 @@ var just_wall_jumped = false
 @onready var starting_position = global_position
 @onready var wall_jump_timer = $"Wall Jump Timer"
 @onready var player = $"."
+@onready var bounce_raycasts = $BounceRaycasts
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -99,3 +100,7 @@ func apply_air_resistance(input_axis, delta):
 func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
 	
+func _check_bounce(delta):
+	if velocity.y > 0:
+		for raycast in bounce_raycasts.get_children():
+			raycast.cast_to = Vector2.DOWN * velocity * delta + Vector2.DOWN

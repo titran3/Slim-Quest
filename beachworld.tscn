@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbvca3qfwh6j6"]
+[gd_scene load_steps=18 format=3 uid="uid://b1mtflj7s4dlp"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_lqv3f"]
-[ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="2_fgxro"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="2_fgxro"]
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="3_1ur7f"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="4_yk0ma"]
 [ext_resource type="Texture2D" uid="uid://ba6m53kylkuvc" path="res://beach1.png" id="5_o1av3"]
@@ -9,16 +8,118 @@
 [ext_resource type="Texture2D" uid="uid://dnlylau641mo1" path="res://sun.png" id="6_wusx4"]
 [ext_resource type="Texture2D" uid="uid://pmy8maqbji87" path="res://ocean.png" id="8_yx7pj"]
 [ext_resource type="Texture2D" uid="uid://mxb6v5j6wv1l" path="res://sand.png" id="9_dkmep"]
+[ext_resource type="Texture2D" uid="uid://bcbp2pla0640u" path="res://SandTileMapBoardersUpdatedONCEAGAINGRRRRRRR.png" id="10_vlab5"]
+[ext_resource type="Texture2D" uid="uid://ta86t0mi5qrg" path="res://WaterTileMapredo.png" id="11_uf0ub"]
+[ext_resource type="PackedScene" uid="uid://ce7qjxi1rhnj8" path="res://seagull.tscn" id="12_ppsq6"]
+
+[sub_resource type="GDScript" id="GDScript_t6ir2"]
+script/source = "extends Node2D
+
+@onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
+@onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
+@onready var main_menu = $\"CanvasLayer/Main Menu\"
+
+var paused = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	polygon_2d.polygon = collision_polygon_2d.polygon
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"pause\"):
+		pauseMenu()
+
+func pauseMenu():
+	if paused:
+		main_menu.hide()
+		Engine.time_scale = 1
+	else:
+		main_menu.show()
+		Engine.time_scale = 0
+	
+	paused = !paused
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3amnu"]
+texture = ExtResource("10_vlab5")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+5:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47fnq"]
+texture = ExtResource("11_uf0ub")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aow2d"]
+sources/0 = SubResource("TileSetAtlasSource_3amnu")
+sources/1 = SubResource("TileSetAtlasSource_47fnq")
+
+[sub_resource type="Animation" id="Animation_rkvtg"]
+resource_name = "Move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 217), Vector2(279, 217)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_goppn"]
+_data = {
+"Move": SubResource("Animation_rkvtg")
+}
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_lqv3f")
+script = SubResource("GDScript_t6ir2")
 
 [node name="Door" parent="." instance=ExtResource("2_fgxro")]
-position = Vector2(268, 239)
+position = Vector2(373, 186)
 scale = Vector2(1.47514, 1.47514)
 
 [node name="Player" parent="." instance=ExtResource("3_1ur7f")]
-position = Vector2(8, 231)
+position = Vector2(18, 235)
 scale = Vector2(0.252642, 0.252642)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -26,22 +127,26 @@ position = Vector2(-145, 158)
 scale = Vector2(0.283943, 0.285138)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(464.882, -126.255)
-polygon = PackedVector2Array(17.6092, 105.212, 17.6092, 441.891, 130.308, 441.891, 192, 512, 256, 512, 320, 448, 384, 448, 448, 384, 512, 384, 576, 576, 704, 576, 834.674, 498.004, 834.674, 694.401, 891.023, 694.401, 891.023, 469.948, 947.373, 441.891, 1031.9, 441.891, 1031.9, 105.212, 1144.6, 105.212, 1144.6, 469.948, 1144.6, 778.57, -66.9148, 778.57, -66.9148, 105.212)
+position = Vector2(496.579, -147.297)
+polygon = PackedVector2Array(17.6092, 105.212, 17.6092, 441.891, 147.917, 434.877, 225.397, 434.877, 271.181, 434.877, 327.531, 434.877, 387.402, 434.877, 457.838, 434.877, 514.188, 434.877, 576, 576, 704, 576, 834.674, 498.004, 834.674, 694.401, 891.023, 694.401, 891.023, 469.948, 947.373, 441.891, 1088.25, 452.412, 1088.25, 266.538, 1362.95, 270.045, 1366.47, 483.976, 1369.99, 824.162, -95.0895, 824.162, -98.6113, 105.212)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Salad" parent="." instance=ExtResource("4_yk0ma")]
-position = Vector2(1, 206)
+position = Vector2(27, 208)
+scale = Vector2(1.5, 1.5)
 
 [node name="Salad2" parent="." instance=ExtResource("4_yk0ma")]
-position = Vector2(51, 252)
+position = Vector2(82, 187)
+scale = Vector2(1.5, 1.5)
 
 [node name="Salad3" parent="." instance=ExtResource("4_yk0ma")]
-position = Vector2(123, 222)
+position = Vector2(155, 183)
+scale = Vector2(1.5, 1.5)
 
 [node name="Salad4" parent="." instance=ExtResource("4_yk0ma")]
-position = Vector2(271, 210)
+position = Vector2(267, 172)
+scale = Vector2(1.5, 1.5)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(167, 65)
@@ -95,3 +200,16 @@ shadow_enabled = true
 color = Color(0.992157, 0.517647, 0.360784, 1)
 energy = 0.4
 shadow_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_aow2d")
+format = 2
+layer_0/tile_data = PackedInt32Array(720894, 0, 0, 720895, 131072, 0, 786431, 131072, 1, 851967, 131072, 1, 917503, 131072, 1, 983039, 131072, 1, 1048575, 327680, 0, 786430, 0, 1, 851966, 0, 1, 917502, 0, 1, 983038, 0, 1, 1048574, 0, 1, 1114110, 0, 1, 1179646, 0, 1, 1245182, 0, 1, 1310718, 0, 1, 1376254, 0, 1, 1441790, 0, 2, 1441791, 65536, 2, 1376255, 65536, 1, 1310719, 65536, 1, 1245183, 65536, 1, 1179647, 65536, 1, 1114111, 65536, 1, 983040, 65536, 0, 983041, 65536, 0, 983042, 65536, 0, 983043, 65536, 0, 983044, 65536, 0, 983045, 65536, 0, 983046, 65536, 0, 983047, 65536, 0, 983048, 131072, 0, 1376256, 65536, 2, 1376257, 65536, 2, 1376258, 65536, 2, 1376259, 65536, 2, 1376260, 65536, 2, 1376261, 65536, 2, 1376262, 65536, 2, 1376263, 65536, 2, 1376264, 131072, 2, 1048584, 131072, 1, 1114120, 131072, 1, 1179656, 131072, 1, 1245192, 131072, 1, 1310728, 131072, 1, 1048576, 65536, 1, 1048577, 65536, 1, 1048578, 65536, 1, 1048579, 65536, 1, 1048580, 65536, 1, 1048581, 65536, 1, 1048582, 65536, 1, 1048583, 65536, 1, 1114119, 65536, 1, 1114118, 65536, 1, 1114117, 65536, 1, 1114116, 65536, 1, 1114115, 65536, 1, 1114114, 65536, 1, 1114113, 65536, 1, 1114112, 65536, 1, 1179648, 65536, 1, 1179649, 65536, 1, 1179650, 65536, 1, 1179651, 65536, 1, 1179652, 65536, 1, 1179653, 65536, 1, 1179654, 65536, 1, 1179655, 65536, 1, 1245191, 65536, 1, 1245190, 65536, 1, 1245189, 65536, 1, 1245188, 65536, 1, 1245187, 65536, 1, 1245186, 65536, 1, 1245185, 65536, 1, 1245184, 65536, 1, 1310720, 65536, 1, 1310721, 65536, 1, 1310722, 65536, 1, 1310723, 65536, 1, 1310724, 65536, 1, 1310725, 65536, 1, 1310726, 65536, 1, 1310727, 65536, 1, 983049, 1, 0, 983050, 65537, 0, 983051, 65537, 0, 983052, 65537, 0, 983053, 65537, 0, 983054, 65537, 0, 983055, 65537, 0, 983056, 65537, 0, 983057, 65537, 0, 983058, 131073, 0, 1048585, 1, 1, 1048594, 131073, 1, 1048586, 65537, 1, 1048587, 65537, 1, 1048588, 65537, 1, 1048589, 65537, 1, 1048590, 65537, 1, 1048591, 65537, 1, 1048592, 65537, 1, 1048593, 65537, 1, 1114121, 1, 2, 1179657, 1, 2, 1245193, 1, 2, 1310729, 1, 2, 1376265, 1, 2, 1376266, 1, 2, 1376267, 1, 2, 1376268, 1, 2, 1376269, 1, 2, 1376270, 1, 2, 1376271, 1, 2, 1376272, 1, 2, 1376273, 1, 2, 1376274, 1, 2, 1310738, 1, 2, 1245202, 1, 2, 1179666, 1, 2, 1114130, 1, 2, 1114129, 1, 2, 1114128, 1, 2, 1114127, 1, 2, 1114126, 1, 2, 1114125, 1, 2, 1114124, 1, 2, 1114123, 1, 2, 1114122, 1, 2, 1179658, 1, 2, 1245194, 1, 2, 1310730, 1, 2, 1310731, 1, 2, 1310732, 1, 2, 1310733, 1, 2, 1310734, 1, 2, 1310735, 1, 2, 1310736, 1, 2, 1245200, 1, 2, 1245201, 1, 2, 1179665, 1, 2, 1310737, 1, 2, 1179664, 1, 2, 1179663, 1, 2, 1179662, 1, 2, 1179661, 1, 2, 1179660, 1, 2, 1179659, 1, 2, 1245195, 1, 2, 1245196, 1, 2, 1245197, 1, 2, 1245198, 1, 2, 1245199, 1, 2, 786451, 0, 0, 851987, 0, 1, 917523, 0, 1, 983059, 0, 1, 1048595, 0, 1, 1114131, 0, 1, 1179667, 0, 1, 1245203, 0, 1, 1310739, 0, 1, 1376275, 0, 2, 1376276, 65536, 2, 1376277, 65536, 2, 1376278, 65536, 2, 1376279, 131072, 2, 1310743, 131072, 1, 1245207, 131072, 1, 1179671, 131072, 1, 1114135, 131072, 1, 1048599, 131072, 1, 983063, 131072, 1, 917527, 131072, 1, 851991, 131072, 1, 786455, 131072, 0, 786452, 65536, 0, 786453, 65536, 0, 786454, 65536, 0, 851988, 65536, 1, 851989, 65536, 1, 851990, 65536, 1, 917526, 65536, 1, 917525, 65536, 1, 917524, 65536, 1, 983060, 65536, 1, 1048596, 65536, 1, 1114132, 65536, 1, 1179668, 65536, 1, 1245204, 65536, 1, 1310740, 65536, 1, 1310741, 65536, 1, 1310742, 65536, 1, 1245206, 65536, 1, 1179670, 65536, 1, 1114134, 65536, 1, 1048598, 65536, 1, 983062, 65536, 1, 983061, 65536, 1, 1048597, 65536, 1, 1114133, 65536, 1, 1179669, 65536, 1, 1245205, 65536, 1)
+
+[node name="Seagull" parent="." instance=ExtResource("12_ppsq6")]
+position = Vector2(237.236, 217)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Seagull"]
+libraries = {
+"": SubResource("AnimationLibrary_goppn")
+}
