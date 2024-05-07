@@ -46,6 +46,7 @@ size = Vector2(30, 8)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xaf18")
 animation = &"Fly"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)

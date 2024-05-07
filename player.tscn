@@ -122,20 +122,3 @@ limit_bottom = 320
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="BounceRayCasts" type="Node2D" parent="."]
-
-[node name="RayCast2D" type="RayCast2D" parent="BounceRayCasts"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-target_position = Vector2(2.08165e-12, 28)
-collide_with_areas = true
-
-[node name="RayCast2D2" type="RayCast2D" parent="BounceRayCasts"]
-position = Vector2(-28, 2.08165e-12)
-target_position = Vector2(2.08165e-12, 28)
-collide_with_areas = true
-
-[node name="RayCast2D3" type="RayCast2D" parent="BounceRayCasts"]
-position = Vector2(28, 2.08165e-12)
-target_position = Vector2(2.08165e-12, 28)
-collide_with_areas = true
