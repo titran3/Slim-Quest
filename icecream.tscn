@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq0lxbw05vlt5"]
+
+[ext_resource type="Texture2D" uid="uid://blo26lackk87v" path="res://icescream.png" id="1_dtyew"]
+[ext_resource type="Script" path="res://junkfood.gd" id="1_jcnsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3fqb"]
+size = Vector2(198, 278)
+
+[sub_resource type="Gradient" id="Gradient_rhh5o"]
+offsets = PackedFloat32Array(0, 0.662338)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgaja"]
+gradient = SubResource("Gradient_rhh5o")
+fill = 1
+fill_from = Vector2(0.479358, 0.481651)
+
+[node name="Ice Cream" type="Area2D" groups=["Ice Cream"]]
+scale = Vector2(0.0451504, 0.0451504)
+script = ExtResource("1_jcnsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dtyew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f3fqb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(15.0531, 11.708)
+color = Color(1, 0.254902, 0.0980392, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_lgaja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

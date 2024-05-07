@@ -19,9 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://chcqhmihkad3g" path="res://animation/catwalk6.png" id="16_1lvj0"]
 [ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="17_metmg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xpjv3"]
-radius = 23.85
-height = 80.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q618u"]
+size = Vector2(45.0003, 82.9998)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8awy"]
 animations = [{
@@ -94,9 +93,9 @@ script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -4)
+position = Vector2(7.5, -4.5)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_xpjv3")
+shape = SubResource("RectangleShape2D_q618u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-12, -39)

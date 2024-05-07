@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://reh67xhsly3m"]
+[gd_scene load_steps=22 format=3 uid="uid://reh67xhsly3m"]
 
 [ext_resource type="Script" path="res://Salad.gd" id="1_e02dm"]
 [ext_resource type="Texture2D" uid="uid://0oo3vjmfi1et" path="res://BowlAnimation-Sheet.png" id="2_8tx6x"]
@@ -111,6 +111,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5ool"]
 
+[sub_resource type="Gradient" id="Gradient_v18ct"]
+offsets = PackedFloat32Array(0, 0.662338)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f8i06"]
+gradient = SubResource("Gradient_v18ct")
+fill = 1
+fill_from = Vector2(0.479358, 0.481651)
+
 [node name="Salad" type="Area2D" groups=["Salad"]]
 script = ExtResource("1_e02dm")
 movement_data = ExtResource("2_ihw23")
@@ -124,5 +133,11 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.451465, 0.451465)
 shape = SubResource("CircleShape2D_o5ool")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.125, 0.875)
+color = Color(0.360784, 0.87451, 0.490196, 1)
+energy = 0.96
+texture = SubResource("GradientTexture2D_f8i06")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
