@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://742euqoyslat"]
+[gd_scene load_steps=4 format=3 uid="uid://742euqoyslat"]
 
 [ext_resource type="Texture2D" uid="uid://cmrx6l6jfs7id" path="res://Parasol.png" id="1_gfofa"]
+[ext_resource type="Script" path="res://parasol.gd" id="1_xjoy7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wtto"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usjop"]
+size = Vector2(42.0118, 22.3584)
 
-[node name="parasol" type="RigidBody2D"]
-lock_rotation = true
-freeze = true
+[node name="parasol" type="Area2D"]
+scale = Vector2(0.67, 0.67)
+script = ExtResource("1_xjoy7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gfofa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, -14)
-rotation = -1.26885
-shape = SubResource("CapsuleShape2D_7wtto")
+position = Vector2(10.1166, -13.203)
+rotation = 0.31765
+shape = SubResource("RectangleShape2D_usjop")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
