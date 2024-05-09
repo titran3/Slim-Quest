@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://reh67xhsly3m"]
+[gd_scene load_steps=27 format=3 uid="uid://reh67xhsly3m"]
 
 [ext_resource type="Script" path="res://Salad.gd" id="1_e02dm"]
 [ext_resource type="Texture2D" uid="uid://0oo3vjmfi1et" path="res://BowlAnimation-Sheet.png" id="2_8tx6x"]
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ihw23"]
 [ext_resource type="Texture2D" uid="uid://0oshg5ku4buq" path="res://Saladidle-Sheet.png" id="3_2rmm0"]
+[ext_resource type="AudioStream" uid="uid://d4gusv3e3380t" path="res://eating-sound-effect-36186.mp3" id="5_yk530"]
+[ext_resource type="AudioStream" uid="uid://bh8y6aj4lphgm" path="res://zapsplat_multimedia_game_sound_ping_correct_right_answer_tick_109650.mp3" id="6_rqxm3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuasd"]
 atlas = ExtResource("2_8tx6x")
@@ -120,6 +122,23 @@ gradient = SubResource("Gradient_v18ct")
 fill = 1
 fill_from = Vector2(0.479358, 0.481651)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j2seh"]
+particle_flag_disable_z = true
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_velocity_max = 539.33
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Gradient" id="Gradient_rknxy"]
+offsets = PackedFloat32Array(0, 0.987013)
+colors = PackedColorArray(8.024e-07, 0.786067, 0, 1, 0.329412, 0.8, 0.572549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7g6c"]
+gradient = SubResource("Gradient_rknxy")
+width = 1
+height = 1
+fill_from = Vector2(0, 1)
+
 [node name="Salad" type="Area2D" groups=["Salad"]]
 script = ExtResource("1_e02dm")
 movement_data = ExtResource("2_ihw23")
@@ -139,5 +158,22 @@ scale = Vector2(1.125, 0.875)
 color = Color(0.360784, 0.87451, 0.490196, 1)
 energy = 0.96
 texture = SubResource("GradientTexture2D_f8i06")
+
+[node name="Eating SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yk530")
+pitch_scale = 1.51
+
+[node name="salad" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_j2seh")
+texture = SubResource("GradientTexture2D_t7g6c")
+one_shot = true
+speed_scale = 0.45
+explosiveness = 0.3
+
+[node name="Grow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rqxm3")
+volume_db = -7.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

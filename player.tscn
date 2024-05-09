@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d20s7q15fo1uw"]
+[gd_scene load_steps=24 format=3 uid="uid://d20s7q15fo1uw"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5jmxd"]
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ccs04"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://bkas7lnfpkb82" path="res://animation/catwalk5.png" id="15_o1biy"]
 [ext_resource type="Texture2D" uid="uid://chcqhmihkad3g" path="res://animation/catwalk6.png" id="16_1lvj0"]
 [ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="17_metmg"]
+[ext_resource type="AudioStream" uid="uid://bg8vxfquk2kvk" path="res://swing-whoosh-110410.mp3" id="19_dxlfy"]
+[ext_resource type="AudioStream" uid="uid://bxt0y1iifyfo6" path="res://human-impact-on-ground-6982.mp3" id="20_xt5wi"]
+[ext_resource type="AudioStream" uid="uid://4uyxxwq8yfdi" path="res://206448-041-Foley-Footsteps-Concrete-Business-Jump-Land-On-One-Foot-Close.wav" id="21_blbku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q618u"]
 size = Vector2(45.0003, 82.9998)
@@ -121,3 +124,13 @@ limit_bottom = 300
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Wall Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_dxlfy")
+
+[node name="Jump land" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_xt5wi")
+pitch_scale = 2.5
+
+[node name="Walking sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_blbku")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2ub0j3ke8x20"]
+[gd_scene load_steps=21 format=3 uid="uid://2ub0j3ke8x20"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
 [ext_resource type="Script" path="res://world.gd" id="1_yxqd0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bq0lxbw05vlt5" path="res://icecream.tscn" id="14_h43dg"]
 [ext_resource type="PackedScene" uid="uid://c2xsgcnfxvbx0" path="res://donut.tscn" id="15_fdcpc"]
 [ext_resource type="PackedScene" uid="uid://cssiy5exar7ls" path="res://coke.tscn" id="16_jg42v"]
+[ext_resource type="AudioStream" uid="uid://cfvwaauss3ypl" path="res://city noises.wav" id="17_7767o"]
 
 [sub_resource type="Environment" id="Environment_rn12s"]
 background_mode = 3
@@ -352,3 +353,7 @@ position = Vector2(465, 255)
 
 [node name="Ice Cream8" parent="." instance=ExtResource("16_jg42v")]
 position = Vector2(715, 225)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_7767o")
+autoplay = true

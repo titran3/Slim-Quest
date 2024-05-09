@@ -13,6 +13,9 @@ var just_wall_jumped = false
 @onready var starting_position = global_position
 @onready var wall_jump_timer = $"Wall Jump Timer"
 @onready var player = $"."
+@onready var wall_jump_sfx = $"Wall Jump"
+@onready var jump_land = $"Jump land"
+@onready var walking_sfx = $"Walking sfx"
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -49,6 +52,7 @@ func handle_wall_jump():
 		wall_normal = was_wall_normal
 
 	if Input.is_action_just_pressed("jump"):
+		wall_jump_sfx.play()
 		velocity.x = wall_normal.x * movement_data.speed
 		velocity.y = movement_data.jump_velocity
 		just_wall_jumped = true

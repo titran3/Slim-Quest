@@ -9,6 +9,9 @@ var image = preload("res://cat door open.png")
 @onready var player_scale_y = 0.95
 @onready var player_scale_x = 0.97
 @onready var speed = 100
+@onready var eating_sfx = $"Eating SFX"
+@onready var salad = $salad
+@onready var grow = $Grow
 
 func _process(delta):
 	var salads = get_tree().get_nodes_in_group("Salad")
@@ -24,6 +27,9 @@ func _process(delta):
 		player_scene.movement_data.speed = speed
 
 func _on_body_entered(body):
+	salad.emitting = true
+	eating_sfx.play()
+	grow.play()
 	state = "eaten"
 	player.scale.y *= player_scale_y
 	player.scale.y *= player_scale_x
