@@ -1,25 +1,57 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce7qjxi1rhnj8"]
+[gd_scene load_steps=11 format=3 uid="uid://dmq2aepqm3si2"]
 
-[ext_resource type="Script" path="res://seagull.gd" id="1_3mrnc"]
-[ext_resource type="Texture2D" uid="uid://bgnav8nnopx18" path="res://BirB-Sheet.png" id="1_cxu2x"]
+[ext_resource type="Texture2D" uid="uid://bgnav8nnopx18" path="res://BirB-Sheet.png" id="1_ddqhb"]
+
+[sub_resource type="GDScript" id="GDScript_me1x0"]
+script/source = "extends AnimatableBody2D
+
+@export var right : Node2D
+@export var left : Node2D
+@onready var sprite = $AnimatedSprite2D
+
+func _ready():
+	tween_to_left()
+	$AnimatedSprite2D.play(\"Fly\")
+
+
+func tween_to_right():
+	self.position = left.position
+	sprite.flip_h = !sprite.flip_h
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, \"position\", right.position, 1.8)
+	tween.tween_callback(tween_to_left)
+	
+func tween_to_left():
+	print(\"tween to left\")
+	self.position = right.position
+	sprite.flip_h = !sprite.flip_h
+	#sprite.flip_x = sprite.!flip_x;
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, \"position\", left.position, 1.8)
+	tween.tween_callback(tween_to_right)
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g188e"]
-atlas = ExtResource("1_cxu2x")
+atlas = ExtResource("1_ddqhb")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fggeb"]
-atlas = ExtResource("1_cxu2x")
+atlas = ExtResource("1_ddqhb")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn0me"]
-atlas = ExtResource("1_cxu2x")
+atlas = ExtResource("1_ddqhb")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epbth"]
-atlas = ExtResource("1_cxu2x")
+atlas = ExtResource("1_ddqhb")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xaf18"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sq6va"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -39,7 +71,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_76st8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ui82"]
 size = Vector2(30, 8)
 
 [sub_resource type="Animation" id="Animation_ky4wl"]
@@ -74,16 +106,17 @@ _data = {
 "new_animation": SubResource("Animation_ky4wl")
 }
 
-[node name="Seagull" type="AnimatableBody2D"]
-script = ExtResource("1_3mrnc")
+[node name="SeagullBackwards" type="AnimatableBody2D"]
+script = SubResource("GDScript_me1x0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_xaf18")
+sprite_frames = SubResource("SpriteFrames_sq6va")
 animation = &"Fly"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
-shape = SubResource("RectangleShape2D_76st8")
+shape = SubResource("RectangleShape2D_4ui82")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
