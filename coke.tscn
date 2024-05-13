@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cssiy5exar7ls"]
+[gd_scene load_steps=7 format=3 uid="uid://cssiy5exar7ls"]
 
 [ext_resource type="Script" path="res://junkfood.gd" id="1_ss7w7"]
 [ext_resource type="Texture2D" uid="uid://c4qjgv3jwg7of" path="res://SodaCan.png" id="2_s3sgb"]
+[ext_resource type="AudioStream" uid="uid://d4gusv3e3380t" path="res://eating-sound-effect-36186.mp3" id="3_08wpr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3fqb"]
 size = Vector2(132.889, 177.186)
@@ -15,7 +16,7 @@ gradient = SubResource("Gradient_rhh5o")
 fill = 1
 fill_from = Vector2(0.479358, 0.481651)
 
-[node name="Ice Cream" type="Area2D" groups=["Ice Cream"]]
+[node name="Coke" type="Area2D" groups=["Ice Cream"]]
 scale = Vector2(0.0451504, 0.0451504)
 script = ExtResource("1_ss7w7")
 
@@ -33,5 +34,8 @@ scale = Vector2(15.0531, 11.708)
 color = Color(1, 0.254902, 0.0980392, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_lgaja")
+
+[node name="Eatingsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_08wpr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

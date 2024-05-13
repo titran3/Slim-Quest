@@ -8,6 +8,8 @@ var image = preload("res://cat door open.png")
 @onready var player = $"../Player"
 @onready var player_scale_y = 1.25
 @onready var player_scale_x = 1.15
+@onready var eatingsound = $Eatingsound
+
 
 func _process(delta):
 	var icecream = get_tree().get_nodes_in_group("Ice Cream")
@@ -18,6 +20,7 @@ func _process(delta):
 		queue_free()
 
 func _on_body_entered(body):
+	eatingsound.play()
 	state = "eaten"
 	player.scale.y *= player_scale_y
 	player.scale.y *= player_scale_x

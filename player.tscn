@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="17_metmg"]
 [ext_resource type="AudioStream" uid="uid://bg8vxfquk2kvk" path="res://swing-whoosh-110410.mp3" id="19_dxlfy"]
 [ext_resource type="AudioStream" uid="uid://bxt0y1iifyfo6" path="res://human-impact-on-ground-6982.mp3" id="20_xt5wi"]
-[ext_resource type="AudioStream" uid="uid://4uyxxwq8yfdi" path="res://206448-041-Foley-Footsteps-Concrete-Business-Jump-Land-On-One-Foot-Close.wav" id="21_blbku"]
+[ext_resource type="AudioStream" uid="uid://3v2rpqx4kcvx" path="res://sound1.wav" id="21_hhkp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q618u"]
 size = Vector2(45.0003, 82.9998)
@@ -132,5 +132,6 @@ stream = ExtResource("19_dxlfy")
 stream = ExtResource("20_xt5wi")
 pitch_scale = 2.5
 
-[node name="Walking sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_blbku")
+[node name="Jumping sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_hhkp4")
+volume_db = -3.467

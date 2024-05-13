@@ -15,7 +15,7 @@ var just_wall_jumped = false
 @onready var player = $"."
 @onready var wall_jump_sfx = $"Wall Jump"
 @onready var jump_land = $"Jump land"
-@onready var walking_sfx = $"Walking sfx"
+@onready var jumping_sfx = $"Jumping sfx"
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -68,10 +68,12 @@ func handle_jump():
 		air_jump = true
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
+			jumping_sfx.play()
 			velocity.y = movement_data.jump_velocity
 			air_jump = true  # Reset air_jump when jumping from the ground
 	elif air_jump:  # Check if double jump is allowed
 		if Input.is_action_just_pressed("jump"):
+			jumping_sfx.play()
 			velocity.y = movement_data.jump_velocity
 			air_jump = false  # Disable double jump after using it
 
