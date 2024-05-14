@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cssiy5exar7ls"]
+[gd_scene load_steps=7 format=3 uid="uid://du5dc24o4nul7"]
 
 [ext_resource type="Script" path="res://junkfood.gd" id="1_ss7w7"]
-[ext_resource type="Texture2D" uid="uid://c4qjgv3jwg7of" path="res://SodaCan.png" id="2_s3sgb"]
-[ext_resource type="AudioStream" uid="uid://d4gusv3e3380t" path="res://eating-sound-effect-36186.mp3" id="3_08wpr"]
+[ext_resource type="Texture2D" path="res://SodaCan.png" id="2_s3sgb"]
+[ext_resource type="AudioStream" path="res://eating-sound-effect-36186.mp3" id="3_08wpr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3fqb"]
 size = Vector2(132.889, 177.186)

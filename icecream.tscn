@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq0lxbw05vlt5"]
+[gd_scene load_steps=8 format=3 uid="uid://ciar45xnvc3tj"]
 
-[ext_resource type="Texture2D" uid="uid://blo26lackk87v" path="res://icescream.png" id="1_dtyew"]
+[ext_resource type="Texture2D" path="res://icescream.png" id="1_dtyew"]
 [ext_resource type="Script" path="res://junkfood.gd" id="1_ky48w"]
-[ext_resource type="AudioStream" uid="uid://d4gusv3e3380t" path="res://eating-sound-effect-36186.mp3" id="3_6kl5d"]
-[ext_resource type="AudioStream" uid="uid://k6cstkh707nb" path="res://error-5-199276.mp3" id="4_augjb"]
+[ext_resource type="AudioStream" path="res://eating-sound-effect-36186.mp3" id="3_6kl5d"]
+[ext_resource type="AudioStream" path="res://error-5-199276.mp3" id="4_augjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3fqb"]
 size = Vector2(198, 278)
