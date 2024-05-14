@@ -6,21 +6,28 @@ var player_scene = preload("res://player.tscn").instantiate()
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var image = preload("res://cat door open.png")
 @onready var player = $"../Player"
-@onready var player_scale_y = 1.25
-@onready var player_scale_x = 1.15
+@onready var player_scale_y = 1.125
+@onready var player_scale_x = 1.1
 @onready var eatingsound = $Eatingsound
+@onready var error = $Error
 
 
 func _process(delta):
+	print(player_scene.movement_data.speed)
 	var icecream = get_tree().get_nodes_in_group("Ice Cream")
 	if state == "idle":
 		pass
 	if state == "eaten":
-		player_scene.movement_data.speed -= 15
+		player_scene.movement_data.speed -= 10
+		self.visible = false
+		position.y = -500
+		state = "idle"
+		await get_tree().create_timer(2.0).timeout
 		queue_free()
 
 func _on_body_entered(body):
-	eatingsound.play()
 	state = "eaten"
 	player.scale.y *= player_scale_y
 	player.scale.y *= player_scale_x
+	$Eatingsound.play()
+	$Error.play()

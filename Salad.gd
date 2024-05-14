@@ -12,19 +12,22 @@ var image = preload("res://cat door open.png")
 @onready var eating_sfx = $"Eating SFX"
 @onready var salad = $salad
 @onready var grow = $Grow
+var speedIncreased = false
 
 func _process(delta):
 	var salads = get_tree().get_nodes_in_group("Salad")
 	if state == "idle":
 		animated_sprite_2d.play("idle")
 	if state == "eaten":
-		player_scene.movement_data.speed = 125
-		await get_tree().create_timer(0.05).timeout
+		eaten()
+		
+func eaten():
+	if not speedIncreased:
+		player_scene.movement_data.speed += 15
+		speedIncreased = true
 		animated_sprite_2d.play("eaten")
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
-		await get_tree().create_timer(1.0).timeout
-		player_scene.movement_data.speed = speed
 
 func _on_body_entered(body):
 	salad.emitting = true

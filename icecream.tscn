@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq0lxbw05vlt5"]
+[gd_scene load_steps=8 format=3 uid="uid://bq0lxbw05vlt5"]
 
 [ext_resource type="Texture2D" uid="uid://blo26lackk87v" path="res://icescream.png" id="1_dtyew"]
+[ext_resource type="Script" path="res://junkfood.gd" id="1_ky48w"]
 [ext_resource type="AudioStream" uid="uid://d4gusv3e3380t" path="res://eating-sound-effect-36186.mp3" id="3_6kl5d"]
+[ext_resource type="AudioStream" uid="uid://k6cstkh707nb" path="res://error-5-199276.mp3" id="4_augjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3fqb"]
 size = Vector2(198, 278)
@@ -17,6 +19,7 @@ fill_from = Vector2(0.479358, 0.481651)
 
 [node name="Ice Cream" type="Area2D" groups=["Ice Cream"]]
 scale = Vector2(0.0451504, 0.0451504)
+script = ExtResource("1_ky48w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dtyew")
@@ -32,6 +35,11 @@ texture = SubResource("GradientTexture2D_lgaja")
 
 [node name="Eatingsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6kl5d")
-pitch_scale = 1.51
+pitch_scale = 0.62
+
+[node name="Error" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_augjb")
+volume_db = 3.467
+pitch_scale = 0.35
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
