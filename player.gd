@@ -39,6 +39,7 @@ func _physics_process(delta):
 	if just_left_wall:
 		wall_jump_timer.start()
 	
+	
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * movement_data.gravity_scale * delta
@@ -105,3 +106,4 @@ func apply_air_resistance(input_axis, delta):
 func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
 	
+

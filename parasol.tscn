@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq4tofjniwe3y"]
+[gd_scene load_steps=4 format=3 uid="uid://742euqoyslat"]
 
 [ext_resource type="Texture2D" uid="uid://cmrx6l6jfs7id" path="res://Parasol.png" id="1_gfofa"]
 [ext_resource type="Script" path="res://parasol.gd" id="1_xjoy7"]
