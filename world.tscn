@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://di8quqid6pubg" path="res://Sky.png" id="2_ccaeo"]
 [ext_resource type="Texture2D" uid="uid://bnbwky3gbnp0h" path="res://Cloud.png" id="3_20ih0"]
 [ext_resource type="Texture2D" uid="uid://b2jr8uqjwrsuq" path="res://Skyline1.png" id="4_p6y42"]
-[ext_resource type="PackedScene" uid="uid://do2bhvnioubox" path="res://beachworld.tscn" id="5_1538w"]
 [ext_resource type="Texture2D" uid="uid://dx6y7pg4roaod" path="res://Skyline2.png" id="5_xm3th"]
 [ext_resource type="Texture2D" uid="uid://bkpu525p2c5yq" path="res://Skyline3.png" id="6_difw0"]
+[ext_resource type="PackedScene" uid="uid://bxtjuavcysw4h" path="res://beachworld1.tscn" id="6_x3qd4"]
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
 [ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="10_e2sgr"]
@@ -254,7 +254,7 @@ position = Vector2(1117, 209)
 
 [node name="Door" parent="." instance=ExtResource("10_e2sgr")]
 position = Vector2(353, -526)
-next_level = ExtResource("5_1538w")
+next_level = ExtResource("6_x3qd4")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(155.75, 105)
