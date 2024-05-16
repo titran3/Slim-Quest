@@ -97,5 +97,6 @@ func apply_air_resistance(input_axis, delta):
 	
 
 func _on_hazard_detector_area_entered(area):
-	global_position = starting_position
-	
+	if area.is_in_group("fire"):
+		get_tree().reload_current_scene()
+		movement_data.speed = 100

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d20s7q15fo1uw"]
+[gd_scene load_steps=22 format=3 uid="uid://d20s7q15fo1uw"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5jmxd"]
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ccs04"]
@@ -88,6 +88,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op5h6"]
+size = Vector2(81, 46)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
@@ -121,3 +124,13 @@ limit_bottom = 300
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Hazard Detector" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard Detector"]
+position = Vector2(7.5, -4)
+shape = SubResource("RectangleShape2D_op5h6")
+
+[connection signal="area_entered" from="Hazard Detector" to="." method="_on_hazard_detector_area_entered"]
