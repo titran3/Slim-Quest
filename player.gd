@@ -107,3 +107,9 @@ func _on_hazard_detector_area_entered(area):
 	global_position = starting_position
 	
 
+
+
+func _on_area_2d_area_entered(area):
+	print("dead")
+	get_tree().reload_current_scene()
+	movement_data.speed = 100

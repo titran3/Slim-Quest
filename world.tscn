@@ -11,12 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
 [ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="10_e2sgr"]
-[ext_resource type="Texture2D" path="res://tile map level 1.png" id="11_wfnn6"]
+[ext_resource type="Texture2D" uid="uid://ct6qjey6edr5w" path="res://tile map level 1.png" id="11_wfnn6"]
 [ext_resource type="PackedScene" uid="uid://dd1ujlt4rwflp" path="res://pause.tscn" id="12_drbbc"]
 [ext_resource type="PackedScene" uid="uid://ciar45xnvc3tj" path="res://icecream.tscn" id="14_h43dg"]
 [ext_resource type="PackedScene" uid="uid://o3vaxxwvk7ja" path="res://donut.tscn" id="15_fdcpc"]
 [ext_resource type="PackedScene" uid="uid://du5dc24o4nul7" path="res://coke.tscn" id="16_jg42v"]
-[ext_resource type="AudioStream" path="res://city noises.wav" id="17_7767o"]
+[ext_resource type="AudioStream" uid="uid://cfvwaauss3ypl" path="res://city noises.wav" id="17_7767o"]
 
 [sub_resource type="Environment" id="Environment_rn12s"]
 background_mode = 3

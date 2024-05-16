@@ -1,8 +1,11 @@
 extends AnimatableBody2D
 
+@onready var player = $"../Player"
 @export var left : Node2D
 @export var right : Node2D
 @onready var sprite = $AnimatedSprite2D
+@onready var seagull_sfx = $"seagull sfx"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tween_to_left()
@@ -29,3 +32,8 @@ func tween_to_right():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_2d_body_entered(body):
+	if body == player:
+		seagull_sfx.play()
