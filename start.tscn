@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://f73l0t6neupr"]
+[gd_scene load_steps=8 format=3 uid="uid://f73l0t6neupr"]
 
 [ext_resource type="Script" path="res://start.gd" id="1_1shfg"]
 [ext_resource type="Theme" uid="uid://cwmybp78ekvwj" path="res://kenneyUI-blue.tres" id="1_fshfp"]
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_hy4v0"]
 [ext_resource type="Texture2D" uid="uid://b2rns8jrm70wb" path="res://logo.png" id="3_crkq7"]
+[ext_resource type="AudioStream" uid="uid://bu7nurbhkrdr4" path="res://8-bit-game-158815.mp3" id="5_rcmt2"]
 
 [sub_resource type="Environment" id="Environment_1oksi"]
 background_mode = 3
@@ -76,6 +77,10 @@ text = "Quit Game"
 position = Vector2(201, -182.5)
 scale = Vector2(0.40625, 0.40625)
 texture = ExtResource("3_crkq7")
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rcmt2")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

@@ -35,5 +35,5 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body == player:
+	if body.name == "Player":
 		seagull_sfx.play()

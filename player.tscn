@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d20s7q15fo1uw"]
+[gd_scene load_steps=24 format=3 uid="uid://d20s7q15fo1uw"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5jmxd"]
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ccs04"]
@@ -91,9 +91,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xbo"]
-size = Vector2(82, 44)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
@@ -138,13 +135,3 @@ pitch_scale = 2.5
 [node name="Jumping sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_hhkp4")
 volume_db = -3.467
-
-[node name="HazardDetector" type="Area2D" parent="." groups=["Fire"]]
-collision_layer = 256
-collision_mask = 256
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
-position = Vector2(7, -6)
-shape = SubResource("RectangleShape2D_d5xbo")
-
-[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
