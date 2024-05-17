@@ -1,13 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://2ub0j3ke8x20"]
+[gd_scene load_steps=23 format=3 uid="uid://2ub0j3ke8x20"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
 [ext_resource type="Script" path="res://world.gd" id="1_yxqd0"]
 [ext_resource type="Texture2D" uid="uid://di8quqid6pubg" path="res://Sky.png" id="2_ccaeo"]
+[ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_x8vqw"]
 [ext_resource type="Texture2D" uid="uid://bnbwky3gbnp0h" path="res://Cloud.png" id="3_20ih0"]
 [ext_resource type="Texture2D" uid="uid://b2jr8uqjwrsuq" path="res://Skyline1.png" id="4_p6y42"]
+[ext_resource type="PackedScene" uid="uid://do2bhvnioubox" path="res://beachworld.tscn" id="5_1538w"]
 [ext_resource type="Texture2D" uid="uid://dx6y7pg4roaod" path="res://Skyline2.png" id="5_xm3th"]
 [ext_resource type="Texture2D" uid="uid://bkpu525p2c5yq" path="res://Skyline3.png" id="6_difw0"]
-[ext_resource type="PackedScene" uid="uid://bxtjuavcysw4h" path="res://beachworld1.tscn" id="6_x3qd4"]
 [ext_resource type="Texture2D" uid="uid://ms1uas7k2ih" path="res://Skyline4.png" id="7_2b63b"]
 [ext_resource type="PackedScene" uid="uid://reh67xhsly3m" path="res://salad.tscn" id="9_g336m"]
 [ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="10_e2sgr"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://o3vaxxwvk7ja" path="res://donut.tscn" id="15_fdcpc"]
 [ext_resource type="PackedScene" uid="uid://du5dc24o4nul7" path="res://coke.tscn" id="16_jg42v"]
 [ext_resource type="AudioStream" uid="uid://cfvwaauss3ypl" path="res://city noises.wav" id="17_7767o"]
+[ext_resource type="PackedScene" uid="uid://cw43q0uc2pc0s" path="res://fire.tscn" id="18_2qwkg"]
 
 [sub_resource type="Environment" id="Environment_rn12s"]
 background_mode = 3
@@ -204,6 +206,7 @@ sources/3 = SubResource("TileSetAtlasSource_eycud")
 
 [node name="World2" type="Node2D"]
 script = ExtResource("1_yxqd0")
+movement_data = ExtResource("2_x8vqw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rn12s")
@@ -254,7 +257,7 @@ position = Vector2(1117, 209)
 
 [node name="Door" parent="." instance=ExtResource("10_e2sgr")]
 position = Vector2(353, -526)
-next_level = ExtResource("6_x3qd4")
+next_level = ExtResource("5_1538w")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2(155.75, 105)
@@ -357,3 +360,9 @@ position = Vector2(715, 225)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_7767o")
 autoplay = true
+
+[node name="Fire" parent="." instance=ExtResource("18_2qwkg")]
+position = Vector2(990, 302)
+scale = Vector2(3.82, 3.82)
+
+[connection signal="body_entered" from="Fire" to="." method="_on_fire_body_entered"]
