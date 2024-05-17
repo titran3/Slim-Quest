@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce7qjxi1rhnj8"]
+[gd_scene load_steps=13 format=3 uid="uid://xsdk71hicth1"]
 
 [ext_resource type="Script" path="res://seagull.gd" id="1_3mrnc"]
 [ext_resource type="Texture2D" uid="uid://bgnav8nnopx18" path="res://BirB-Sheet.png" id="1_cxu2x"]
+[ext_resource type="AudioStream" uid="uid://b1lmlamcuflro" path="res://seagull-2-89447.mp3" id="3_ojwl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g188e"]
 atlas = ExtResource("1_cxu2x")
@@ -74,6 +75,10 @@ _data = {
 "new_animation": SubResource("Animation_ky4wl")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ofaeg"]
+radius = 64.0
+height = 128.0
+
 [node name="Seagull" type="AnimatableBody2D"]
 script = ExtResource("1_3mrnc")
 
@@ -89,3 +94,13 @@ shape = SubResource("RectangleShape2D_76st8")
 libraries = {
 "": SubResource("AnimationLibrary_rkctc")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ofaeg")
+
+[node name="seagull sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ojwl7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

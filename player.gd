@@ -106,3 +106,9 @@ func apply_air_resistance(input_axis, delta):
 
 	
 
+
+
+func _on_area_2d_area_entered(area):
+	print("dead")
+	get_tree().reload_current_scene()
+	movement_data.speed = 100
