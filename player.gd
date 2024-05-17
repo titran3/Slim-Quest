@@ -101,15 +101,3 @@ func update_animation(input_axis):
 func apply_air_resistance(input_axis, delta):
 	if input_axis == 0 and not is_on_floor():
 		velocity.x = move_toward(velocity.x , 0, movement_data.air_resistance * delta)
-	
-
-func _on_hazard_detector_area_entered(area):
-	global_position = starting_position
-	
-
-
-
-func _on_area_2d_area_entered(area):
-	print("dead")
-	get_tree().reload_current_scene()
-	movement_data.speed = 100

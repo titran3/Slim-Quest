@@ -19,7 +19,7 @@ func _on_return_pressed():
 
 func _on_restart_pressed():
 	get_tree().reload_current_scene()
-	movement_data.speed = 100
+	movement_data.speed = 100  
 	world.pauseMenu()
 
 
