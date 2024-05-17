@@ -103,7 +103,6 @@ func apply_air_resistance(input_axis, delta):
 		velocity.x = move_toward(velocity.x , 0, movement_data.air_resistance * delta)
 	
 
-func _on_hazard_detector_area_entered(area):
-	global_position = starting_position
+
 	
 

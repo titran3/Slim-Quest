@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d20s7q15fo1uw"]
+[gd_scene load_steps=25 format=3 uid="uid://d20s7q15fo1uw"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5jmxd"]
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="2_ccs04"]
@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://bkas7lnfpkb82" path="res://animation/catwalk5.png" id="15_o1biy"]
 [ext_resource type="Texture2D" uid="uid://chcqhmihkad3g" path="res://animation/catwalk6.png" id="16_1lvj0"]
 [ext_resource type="Texture2D" uid="uid://b0qb6dih7sysg" path="res://animation/catwalk7.png" id="17_metmg"]
-[ext_resource type="AudioStream" path="res://swing-whoosh-110410.mp3" id="19_dxlfy"]
-[ext_resource type="AudioStream" path="res://human-impact-on-ground-6982.mp3" id="20_xt5wi"]
-[ext_resource type="AudioStream" path="res://sound1.wav" id="21_hhkp4"]
+[ext_resource type="AudioStream" uid="uid://bg8vxfquk2kvk" path="res://swing-whoosh-110410.mp3" id="19_dxlfy"]
+[ext_resource type="AudioStream" uid="uid://bxt0y1iifyfo6" path="res://human-impact-on-ground-6982.mp3" id="20_xt5wi"]
+[ext_resource type="AudioStream" uid="uid://3v2rpqx4kcvx" path="res://sound1.wav" id="21_hhkp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q618u"]
 size = Vector2(45.0003, 82.9998)
@@ -91,6 +91,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xbo"]
+size = Vector2(82, 44)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
@@ -135,3 +138,13 @@ pitch_scale = 2.5
 [node name="Jumping sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_hhkp4")
 volume_db = -3.467
+
+[node name="HazardDetector" type="Area2D" parent="." groups=["Fire"]]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(7, -6)
+shape = SubResource("RectangleShape2D_d5xbo")
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
