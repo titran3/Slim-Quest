@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcf4hqdq28sx0"]
+
+[ext_resource type="Texture2D" uid="uid://c7hykcutyvf12" path="res://animation/Level2Crab-export.png" id="1_c8btg"]
+[ext_resource type="Script" path="res://crab.gd" id="1_lvd6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnglm"]
+atlas = ExtResource("1_c8btg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coh1t"]
+atlas = ExtResource("1_c8btg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfutp"]
+atlas = ExtResource("1_c8btg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spwh5"]
+atlas = ExtResource("1_c8btg")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lnqy"]
+atlas = ExtResource("1_c8btg")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yeglu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnglm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coh1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfutp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spwh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lnqy")
+}],
+"loop": true,
+"name": &"Crab",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ialci"]
+size = Vector2(30, 18)
+
+[node name="Crab" type="Area2D" groups=["Crab"]]
+script = ExtResource("1_lvd6v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yeglu")
+animation = &"Crab"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ialci")

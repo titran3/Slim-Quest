@@ -139,7 +139,7 @@ pitch_scale = 2.5
 stream = ExtResource("21_hhkp4")
 volume_db = -3.467
 
-[node name="HazardDetector" type="Area2D" parent="." groups=["Fire"]]
+[node name="HazardDetector" type="Area2D" parent="." groups=["Crab", "Fire"]]
 collision_layer = 256
 collision_mask = 256
 
