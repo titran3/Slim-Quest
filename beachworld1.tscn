@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxtjuavcysw4h"]
+[gd_scene load_steps=28 format=3 uid="uid://bxtjuavcysw4h"]
 
 [ext_resource type="Resource" uid="uid://didotkwy2bigt" path="res://DefultMovementData.tres" id="1_2il8m"]
 [ext_resource type="PackedScene" uid="uid://cp02xi8ad44mt" path="res://door.tscn" id="2_fgxro"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dd1ujlt4rwflp" path="res://pause.tscn" id="16_0ttv4"]
 [ext_resource type="AudioStream" uid="uid://52ylh8m6t3b6" path="res://Beach Ambience Sound Effect  100 Royalty Free  No Copyright Strikes.mp3" id="16_q0ili"]
 [ext_resource type="PackedScene" uid="uid://bcf4hqdq28sx0" path="res://crab.tscn" id="20_8qd0u"]
+[ext_resource type="PackedScene" uid="uid://ciar45xnvc3tj" path="res://icecream.tscn" id="21_i2rsg"]
+[ext_resource type="PackedScene" uid="uid://du5dc24o4nul7" path="res://coke.tscn" id="22_o5ei1"]
 
 [sub_resource type="GDScript" id="GDScript_t6ir2"]
 script/source = "extends Node2D
@@ -426,10 +428,19 @@ position = Vector2(813, 16)
 position = Vector2(983, -64)
 
 [node name="Crab4" parent="." instance=ExtResource("20_8qd0u")]
-position = Vector2(392, -32)
+position = Vector2(489, 160)
 
 [node name="Crab5" parent="." instance=ExtResource("20_8qd0u")]
 position = Vector2(2106, -80)
+
+[node name="Ice Cream" parent="." instance=ExtResource("21_i2rsg")]
+position = Vector2(2297, -169)
+
+[node name="Coke" parent="." instance=ExtResource("22_o5ei1")]
+position = Vector2(1237, -89)
+
+[node name="Coke2" parent="." instance=ExtResource("22_o5ei1")]
+position = Vector2(373, 104)
 
 [connection signal="body_entered" from="Water5" to="." method="_on_water_body_entered"]
 [connection signal="body_entered" from="Water4" to="." method="_on_water_body_entered"]
