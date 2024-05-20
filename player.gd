@@ -63,6 +63,7 @@ func handle_wall_jump():
 			animated_sprite_2d.flip_h = true
 		else:
 			animated_sprite_2d.flip_h = false
+			
 	
 func handle_jump():
 	if is_on_floor(): 
@@ -77,6 +78,10 @@ func handle_jump():
 			jumping_sfx.play()
 			velocity.y = movement_data.jump_velocity
 			air_jump = false  # Disable double jump after using it
+	
+	if velocity.x != 0:
+		animated_sprite_2d.flip_h = velocity.x < 0
+
 
 
 func apply_friction(input_axis, delta):
@@ -95,8 +100,12 @@ func update_animation(input_axis):
 		else:
 			animated_sprite_2d.play("idle")
 	else:
-		animated_sprite_2d.flip_h = (input_axis < 0)
 		animated_sprite_2d.play("jump")
+
+	# Maintain direction in air based on velocity
+	if not is_on_floor():
+		if velocity.x != 0:
+			animated_sprite_2d.flip_h = velocity.x < 0
 		
 func apply_air_resistance(input_axis, delta):
 	if input_axis == 0 and not is_on_floor():

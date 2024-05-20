@@ -25,7 +25,13 @@ func _process(delta):
 		await get_tree().create_timer(2.0).timeout
 		queue_free()
 
+func color():
+	player.modulate = Color(0.99,0.24,0.24)
+	await get_tree().create_timer(0.15).timeout
+	player.modulate = Color.WHITE
+
 func _on_body_entered(body):
+	color()
 	state = "eaten"
 	player.scale.y *= player_scale_y
 	player.scale.y *= player_scale_x

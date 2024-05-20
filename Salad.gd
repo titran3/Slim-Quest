@@ -29,7 +29,13 @@ func eaten():
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
 
+func color():
+	player.modulate = Color(0.44,1.00,0.62)
+	await get_tree().create_timer(0.15).timeout
+	player.modulate = Color.WHITE
+	
 func _on_body_entered(body):
+	color()
 	salad.emitting = true
 	eating_sfx.play()
 	grow.play()
