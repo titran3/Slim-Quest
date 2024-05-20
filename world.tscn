@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2ub0j3ke8x20"]
+[gd_scene load_steps=25 format=3 uid="uid://2ub0j3ke8x20"]
 
 [ext_resource type="PackedScene" uid="uid://d20s7q15fo1uw" path="res://player.tscn" id="1_gadae"]
 [ext_resource type="Script" path="res://world.gd" id="1_yxqd0"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://du5dc24o4nul7" path="res://coke.tscn" id="16_jg42v"]
 [ext_resource type="AudioStream" uid="uid://cfvwaauss3ypl" path="res://city noises.wav" id="17_7767o"]
 [ext_resource type="PackedScene" uid="uid://cw43q0uc2pc0s" path="res://fire.tscn" id="18_2qwkg"]
+[ext_resource type="PackedScene" uid="uid://1en5jgoq7fq4" path="res://timer.tscn" id="20_fxlmr"]
 
 [sub_resource type="Environment" id="Environment_rn12s"]
 background_mode = 3
@@ -329,6 +330,13 @@ scale = Vector2(0.410078, 0.406871)
 
 [node name="Main Menu" parent="CanvasLayer" instance=ExtResource("12_drbbc")]
 visible = false
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("20_fxlmr")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 32.0
+scale = Vector2(0.5, 0.5)
 
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
 energy = 0.56

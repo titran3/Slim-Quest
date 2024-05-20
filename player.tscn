@@ -23,7 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://3v2rpqx4kcvx" path="res://sound1.wav" id="21_hhkp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q618u"]
-size = Vector2(48.0001, 82.9998)
+size = Vector2(49.0001, 82.9998)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8awy"]
 animations = [{
@@ -96,7 +96,7 @@ script = ExtResource("1_5jmxd")
 movement_data = ExtResource("2_ccs04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.49999, -3.00008)
+position = Vector2(7.49999, -2.50006)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_q618u")
 
